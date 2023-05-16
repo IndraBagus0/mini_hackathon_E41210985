@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\JawabanController;
 use App\Http\Controllers\PertanyaanController;
 
 /*
@@ -31,3 +32,6 @@ Route::post('/register', [AuthController::class, 'register'])->name('register');
 Route::get('/pertanyaan', [PertanyaanController::class, 'index'])->name('home')->middleware('auth');
 Route::get('/pertanyaan/create', [PertanyaanController::class, 'create'])->name('pertanyaan.create')->middleware('auth');
 Route::post('/pertanyaan', [PertanyaanController::class, 'store'])->name('pertanyaan.store')->middleware('auth');
+
+//jawaban
+Route::post('/pertanyaan/{id}/jawaban', [JawabanController::class, 'store'])->name('jawaban.store')->middleware('auth');
